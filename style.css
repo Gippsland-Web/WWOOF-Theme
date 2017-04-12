@@ -1,0 +1,224 @@
+/*
+Theme Name: WWOOF Divi
+Theme URI: http://gippslandweb.com.au	
+Description: A Custom Child Theme For Divi
+Author: GippslandWeb	
+Author URI: http://gippslandweb.com.au	
+Template: Divi
+Version: 1
+*/
+
+/* Hack to fix bp message avatar till they fix it upstream*/
+#item-body > div.bp-messages-wrap > div.scroll-wrapper.scroller.scrollbar-inner > div.scroller.scrollbar-inner.scroll-content > div > div > div.pic > a > img {
+width:50px;
+max-width:none;
+}
+/* --------------- panel-success color change on profiles -------------- */
+.panel-success .panel-heading {background-color: #388e3c;
+	border-color: #00796b;
+	color: #ffffff;
+	padding-bottom:0px!important;
+}
+/* ===================== HIDE NAV BAR UNDER PROFILE IMAGES ================== */
+#buddypress div#item-nav {display:none!important}
+
+/* ======================  HIDE STAR REVIEWS AT TOP OF PROFILE  ================= */
+.bp-users-reviews-stars {display:none!important}
+
+/* --------------------------------- BPRESS TABLE COLOR STRIPES ---------------------- */
+#buddypress table.forum tr.alt td, #buddypress table.messages-notices tr.alt td, #buddypress table.notifications tr.alt td, #buddypress table.notifications-settings tr.alt td, #buddypress table.profile-fields tr.alt td, #buddypress table.profile-settings tr.alt td, #buddypress table.wp-profile-fields tr.alt td {background: #e0fce2 none repeat!important}
+
+
+
+
+
+
+//Members directory CSS
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* -----------------------------Profile Content------------------------------ */
+/* space above Host Profile heading */
+.profile {
+	margin-top:20px;
+}
+
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+.follow-button {
+padding-left:15px; }
+
+
+
+
+
+#sitewide-notice.admin-bar-on #message {
+top:9.3em;
+}
+
+
+
+/* ---------- move message avatars off left hand margin in single messages -------- */
+.wpc .single-pm .wpc_contents {margin-left:10px!important;}
+/* ---------- change color of user name in single messages ------- */
+.wpc-archive .message-snippet .contact-date span:nth-child(1) {color:#00796b!important;}
+
+
+
+
+
+
+
+
+/*Style buttons in profile header*/
+#item-meta {
+padding-top:20px;
+}
+.messagebtn:after { display:none !important; }
+
+.messagebtn:hover { padding: 0.3em 1em !important; }
+
+.messagebtn:hover { 
+	color:#3c763d !important;
+	background:#ffffff !important;
+	border-color:#3c763d !important;
+	letter-spacing:0px;
+	padding-left:0.7em; padding-right: 2em; 
+}
+.messagebtnholder {
+	display:inline-block;
+	float:none!important;
+	margin: 0px;
+}
+
+.messagebtn { 
+	color:#ffffff !important;
+	background:#3c763d!important;
+	border-color:#3c763d;
+	border: 2px solid!important;
+	letter-spacing:0px;
+	font-size:14px!important; 
+	padding-bottom:0.3em!important;
+}
+
+@media only screen and ( max-width: 980px ) {
+		.messagebtn:hover { letter-spacing:0px; }
+			.messagebtn:after { 
+			letter-spacing:0px; }
+}
+@media only screen and ( max-width: 767px ) {
+		.messagebtn:hover { letter-spacing:0px; }
+			.messagebtn:after { 
+			letter-spacing:0px; }
+}
+
+/*     -----------   MOVE SEND MESSAGE AND FOLLOW BUTTONS ON PROFILE  ------------*/
+@media only screen and ( min-width: 767px ) {
+#buddypress div#item-header #item-header-cover-image #item-header-content {
+margin-top:-90px!important 
+}
+.messagebtnholder {
+padding-right:10px;
+margin-top:10px!important;}
+}
+/*Hide the last activity time in profile header*/
+#item-header-content > .activity {
+visibility:hidden!important;
+}
