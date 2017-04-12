@@ -1,6 +1,13 @@
 <?php 
 
+/*Redirect users to profile page on login*/
 
+function gw_login_redirect($redirect_to, $request, $user) {
+    if(isset($user) && isset($user->id))
+        return bp_core_get_user_domain($user->id);
+    return $redirect_to;
+}
+add_filter('login_redirect','gw_login_redirect',10,3);
 
 /*
 UMP Hooks to connect member levels from UMP to BP
