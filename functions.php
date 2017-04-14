@@ -1,14 +1,6 @@
 <?php 
 
-/*Redirect users to profile page on login*/
 
-function gw_login_redirect($redirect_to, $request, $user) {
-    //check if user is wwoofer or host or affiliate and send to page as requested
-    if(isset($user) && isset($user->id))
-        return bp_core_get_user_domain($user->id);
-    return $redirect_to;
-}
-add_filter('login_redirect','gw_login_redirect',10,3);
 
 
 
