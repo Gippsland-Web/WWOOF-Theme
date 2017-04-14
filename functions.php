@@ -3,40 +3,14 @@
 /*Redirect users to profile page on login*/
 
 function gw_login_redirect($redirect_to, $request, $user) {
+    //check if user is wwoofer or host or affiliate and send to page as requested
     if(isset($user) && isset($user->id))
         return bp_core_get_user_domain($user->id);
     return $redirect_to;
 }
 add_filter('login_redirect','gw_login_redirect',10,3);
 
-/*
-UMP Hooks to connect member levels from UMP to BP
-*/
-function gw_update_level($userid, $levelid) {
-    switch($levelid)
-    {
-        case 6:
-        case 4: // wwoofer
-        bp_set_member_type($userid, 'wwoofer');
 
-        break;
-        
-        case 5: //Host
-        bp_set_member_type($userid, 'host');
-        break;
-        
-    default:
-        bp_set_member_type($userid, '');
-    break;
-    }
-}
-add_action("ihc_new_subscription_action","gw_update_level",10,2);
-add_action("ihc_action_after_subscription_activated","gw_update_level",10,2);
-
-function gw_remove_level($userid, $levelid) {
-    bp_set_member_type($userid, '');
-}
-add_action("ihc_action_after_subscription_delete","gw_remove_level",10,2);
 
 
 
@@ -192,32 +166,7 @@ add_filter('wp_nav_menu_items', function( $items ) {
 });
 
 
-// ======================  LOGIN REDIRECT ======================== 
 
-/**
- * Redirect user after successful login.
- *
- * @param string $redirect_to URL to redirect to.
- * @param string $request URL the user is coming from.
- * @param object $user Logged user's data.
- * @return string
- */
-function my_login_redirect( $redirect_to, $request, $user ) {
-	//is there a user to check?
-	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-		//check for admins
-		if ( in_array( 'administrator', $user->roles ) ) {
-			// redirect them to the default place
-			return $redirect_to;
-		} else {
-			return '/members/'.bp_core_get_username($user->ID);
-		}
-	} else {
-		return $redirect_to;
-	}
-}
-
-add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
 
 /** =====================  LOG OUT REDIRECT  =====================
 * add_filter( 'logout_url', 'my_logout_page', 10, 2 );
